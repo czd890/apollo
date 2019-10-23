@@ -117,7 +117,7 @@ namespace_module.controller("LinkNamespaceController",
                 } else {
 
                     var namespaceNameLength = $scope.concatNamespace().length;
-                    if (namespaceNameLength > 32) {
+                    if (namespaceNameLength > 100) {
                         var errorTip = $translate.instant('Namespace.CheckNamespaceNameLengthTip', {
                             departmentLength: namespaceNameLength - $scope.appNamespace.name.length,
                             namespaceLength: $scope.appNamespace.name.length
