@@ -5,7 +5,7 @@ import com.ctrip.framework.apollo.common.dto.ItemDTO;
 import com.ctrip.framework.apollo.common.dto.NamespaceDTO;
 import com.ctrip.framework.apollo.common.exception.BadRequestException;
 import com.ctrip.framework.apollo.core.enums.ConfigFileFormat;
-import com.ctrip.framework.apollo.core.enums.Env;
+import com.ctrip.framework.apollo.portal.environment.Env;
 import com.ctrip.framework.apollo.core.utils.StringUtils;
 import com.ctrip.framework.apollo.portal.component.PermissionValidator;
 import com.ctrip.framework.apollo.portal.entity.model.NamespaceSyncModel;
@@ -194,8 +194,7 @@ public class ItemController {
       configService.syncItems(model.getSyncToNamespaces(), model.getSyncItems());
       return ResponseEntity.status(HttpStatus.OK).build();
     }
-    else
-      throw new AccessDeniedException(String.format("You don't have the permission to modify environment: %s", envNoPermission));
+    throw new AccessDeniedException(String.format("You don't have the permission to modify environment: %s", envNoPermission));
   }
 
   @PreAuthorize(value = "@permissionValidator.hasModifyNamespacePermission(#appId, #namespaceName, #env)")
