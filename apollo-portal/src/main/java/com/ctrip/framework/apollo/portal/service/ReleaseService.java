@@ -3,7 +3,7 @@ package com.ctrip.framework.apollo.portal.service;
 import com.ctrip.framework.apollo.common.constants.GsonType;
 import com.ctrip.framework.apollo.common.dto.ItemChangeSets;
 import com.ctrip.framework.apollo.common.dto.ReleaseDTO;
-import com.ctrip.framework.apollo.core.enums.Env;
+import com.ctrip.framework.apollo.portal.environment.Env;
 import com.ctrip.framework.apollo.core.utils.StringUtils;
 import com.ctrip.framework.apollo.portal.api.AdminServiceAPI;
 import com.ctrip.framework.apollo.portal.constant.TracerEventType;
@@ -126,9 +126,8 @@ public class ReleaseService {
     List<ReleaseDTO> releases = findReleaseByIds(env, releaseIds);
     if (CollectionUtils.isEmpty(releases)) {
       return null;
-    } else {
-      return releases.get(0);
     }
+    return releases.get(0);
 
   }
 
