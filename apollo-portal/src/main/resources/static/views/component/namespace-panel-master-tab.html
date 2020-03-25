@@ -100,9 +100,7 @@
         </div>
     </header>
 
-
-
-    <div id="BODY{{namespace.id}}" ng-class="{'collapse in': showNamespaceBody, 'collapse' : !showNamespaceBody}">
+    <div id="BODY{{namespace.id}}" ng-if="namespace.displayControl.show">
         <div class="J_namespace-release-tip well well-sm no-radius text-center" ng-show="namespace.isConfigHidden">
             <span style="color: red">{{'Component.Namespace.Master.Items.NoPermissionTips' | translate }}</span>
         </div>
@@ -205,7 +203,7 @@
         <!--namespace body-->
         <section ng-show="!namespace.isConfigHidden">
             <!--table view-->
-            <div class="namespace-view-table" ng-show="namespace.viewType == 'table'">
+            <div class="namespace-view-table" ng-if="namespace.viewType == 'table'">
 
                 <div class="J_namespace-release-tip well well-sm no-radius text-center"
                     ng-show="namespace.isLatestReleaseLoaded && !namespace.isLinkedNamespace && !namespace.latestRelease">
@@ -224,9 +222,9 @@
                         <thead>
                             <tr>
                                 <th class="hover" title="{{'Component.Namespace.Master.Items.Body.Sort' | translate }}"
-                                   ng-click="col='item.dataChangeLastModifiedTime';desc=!desc;">
-                                  {{'Component.Namespace.Master.Items.Body.PublishState' | translate }}
-                                  <span class="glyphicon glyphicon-sort"></span>
+                                    ng-click="col='item.dataChangeLastModifiedTime';desc=!desc;">
+                                    {{'Component.Namespace.Master.Items.Body.PublishState' | translate }}
+                                    <span class="glyphicon glyphicon-sort"></span>
                                 </th>
                                 <th class="hover" title="{{'Component.Namespace.Master.Items.Body.Sort' | translate }}"
                                     ng-click="col='item.key';desc=!desc;">
@@ -684,18 +682,18 @@
             <!--text view-->
             <!--只读模式下的文本内容,不替换换行符-->
             <div ui-ace="aceConfig" readonly="true" class="form-control no-radius"
-                rows="{{namespace.itemCnt < 10 ? 10: namespace.itemCnt>20 ? 20:namespace.itemCnt}}"
-                ng-show="namespace.viewType == 'text' && !namespace.isTextEditing" ng-model="namespace.text">
+                rows="{{namespace.itemCnt < 20 ? 20: namespace.itemCnt>40 ? 40:namespace.itemCnt}}"
+                ng-if="namespace.viewType == 'text' && !namespace.isTextEditing" ng-model="namespace.text">
             </div>
             <!--编辑状态下的文本内容,会过滤掉换行符-->
             <div ui-ace="aceConfig" class="form-control no-radius"
-                rows="{{namespace.itemCnt < 10 ? 10: namespace.itemCnt>20 ? 20:namespace.itemCnt}}"
-                ng-show="namespace.viewType == 'text' && namespace.isTextEditing" ng-disabled="!namespace.isTextEditing"
+                rows="{{namespace.itemCnt < 20 ? 20: namespace.itemCnt>40 ? 40:namespace.itemCnt}}"
+                ng-if="namespace.viewType == 'text' && namespace.isTextEditing" ng-disabled="!namespace.isTextEditing"
                 ng-model="namespace.editText">
             </div>
 
             <!--history view-->
-            <div class="J_historyview history-view" ng-show="namespace.viewType == 'history'">
+            <div class="J_historyview history-view" ng-if="namespace.viewType == 'history'">
                 <div class="media" ng-show="namespace.commits && namespace.commits.length"
                     ng-repeat="commits in namespace.commits">
                     <div class="media-body">
@@ -831,7 +829,7 @@
                 </div>
             </div>
             <!--instance view-->
-            <div class="panel panel-default instance-view" ng-show="namespace.viewType == 'instance'">
+            <div class="panel panel-default instance-view" ng-if="namespace.viewType == 'instance'">
                 <div class="panel-heading">
                     <div class="row">
 

@@ -1,5 +1,5 @@
 <section class="branch-panel-body" ng-if="namespace.initialized &&
-                (namespace.hasBranch && namespace.displayControl.currentOperateBranch != 'master')">
+(namespace.hasBranch && namespace.displayControl.currentOperateBranch != 'master')">
     <!--main header-->
     <header class="panel-heading">
 
@@ -41,8 +41,7 @@
 
     </header>
 
-    <div id="BODY{{namespace.branch.id}}"
-        ng-class="{'collapse in': showNamespaceBody, 'collapse' : !showNamespaceBody}">
+    <div id="BODY{{namespace.branch.id}}" ng-if="namespace.displayControl.show">
         <div class="J_namespace-release-tip well well-sm no-radius text-center" ng-show="namespace.isConfigHidden">
             <span style="color: red">{{'Component.Namespace.Branch.NoPermissionTips' | translate }}</span>
         </div>
@@ -105,7 +104,7 @@
                                 <th class="hover" title="{{'Component.Namespace.Branch.Body.ItemSort' | translate }}"
                                     ng-click="col='item.dataChangeLastModifiedTime';desc=!desc;">
                                     {{'Component.Namespace.Branch.Body.PublishState' | translate }}
-                                   <span class="glyphicon glyphicon-sort"></span>
+                                    <span class="glyphicon glyphicon-sort"></span>
                                 </th>
                                 <th class="hover" title="{{'Component.Namespace.Branch.Body.ItemSort' | translate }}"
                                     ng-click="col='item.key';desc=!desc;">

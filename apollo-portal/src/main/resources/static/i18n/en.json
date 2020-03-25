@@ -285,6 +285,7 @@
   "Component.Publish.Release": "Release Name",
   "Component.Publish.ReleaseComment": "Comment",
   "Component.Publish.OpPublish": "Release",
+  "Component.Publish.ValueLengthTooLongTip": "The length of value is greater than 5000, hidden it.",
   "Component.Rollback.To": "roll back to",
   "Component.Rollback.Tips": "This operation will roll back to the last released version, and the current version is abandoned, but there is no impact to the currently editing configurations. You may view the currently effective version in the release history page",
   "Component.Rollback.ClickToView": "Click to view",

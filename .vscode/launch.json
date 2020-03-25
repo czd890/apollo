@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)-AdminServiceApplication<apollo-adminservice>",
+            "request": "launch",
+            "mainClass": "com.ctrip.framework.apollo.adminservice.AdminServiceApplication",
+            "projectName": "apollo-adminservice",
+            "vmArgs": "-Dapollo_profile=github -Dspring.datasource.url=jdbc:mysql://intradayticks-test.db.xignite.com:3306/ApolloConfigDB?characterEncoding=utf8 -Dspring.datasource.username=ReadWriteUser -Dspring.datasource.password=nguoidep",
+            "args": "--adminservice"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ConfigServiceApplication<apollo-configservice>",
+            "request": "launch",
+            "mainClass": "com.ctrip.framework.apollo.configservice.ConfigServiceApplication",
+            "projectName": "apollo-configservice",
+            "vmArgs": "-Dapollo_profile=github -Dspring.datasource.url=jdbc:mysql://intradayticks-test.db.xignite.com:3306/ApolloConfigDB?characterEncoding=utf8 -Dspring.datasource.username=ReadWriteUser -Dspring.datasource.password=nguoidep",
+            "args": "--configservice"
+        },
+ 
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PortalApplication<apollo-portal>",
+            "request": "launch",
+            "mainClass": "com.ctrip.framework.apollo.portal.PortalApplication",
+            "projectName": "apollo-portal",
+            "vmArgs": "-Dapollo_profile=github,auth -Ddev_meta=http://localhost:8080/ -Dserver.port=8070 -Dspring.datasource.url=jdbc:mysql://intradayticks-test.db.xignite.com:3306/ApolloPortalDB?characterEncoding=utf8 -Dspring.datasource.username=ReadWriteUser -Dspring.datasource.password=nguoidep"
+        }
+    ]
+}

@@ -202,8 +202,11 @@
                         <!--file format -->
                         <div ng-repeat="item in toReleaseNamespace.items" ng-if="!toReleaseNamespace.isPropertiesFormat"
                             ng-show="releaseChangeViewType=='change'">
-                            <apollodiff old-str="item.oldValue" new-str="item.newValue" apollo-id="'releaseStrDiff'">
+                            <apollodiff ng-if="item.oldValue.length<5000 && item.newValue.length<5000" old-str="item.oldValue" new-str="item.newValue" apollo-id="'releaseStrDiff'">
                             </apollodiff>
+                            <div ng-else>
+                                {{'Component.Publish.ValueLengthTooLongTip' | translate }}
+                            </div>
                         </div>
                         <div ng-repeat="item in toReleaseNamespace.items" ng-if="!toReleaseNamespace.isPropertiesFormat"
                             ng-show="releaseChangeViewType=='release'">

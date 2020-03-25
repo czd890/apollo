@@ -68,6 +68,7 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
             scope.editRuleItem = editRuleItem;
 
             scope.deleteNamespace = deleteNamespace;
+            scope.switchShowHide = switchShowHide;
 
             var subscriberId = EventManager.subscribe(EventManager.EventType.UPDATE_GRAY_RELEASE_RULES,
                 function (context) {
@@ -697,7 +698,7 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
                     return false;
                 }
                 $window.location.href =
-                AppUtil.prefixPath() + "/config/sync.html?#/appid=" + scope.appId + "&env="
+                    AppUtil.prefixPath() + "/config/sync.html?#/appid=" + scope.appId + "&env="
                     + scope.env + "&clusterName="
                     + scope.cluster
                     + "&namespaceName=" + namespace.baseInfo.namespaceName;
@@ -705,7 +706,7 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
 
             function goToDiffPage(namespace) {
                 $window.location.href =
-                AppUtil.prefixPath() + "/config/diff.html?#/appid=" + scope.appId + "&env="
+                    AppUtil.prefixPath() + "/config/diff.html?#/appid=" + scope.appId + "&env="
                     + scope.env + "&clusterName="
                     + scope.cluster
                     + "&namespaceName=" + namespace.baseInfo.namespaceName;
@@ -886,6 +887,10 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
                 EventManager.emit(EventManager.EventType.PRE_DELETE_NAMESPACE, { namespace: namespace });
             }
 
+            function switchShowHide(){
+             scope.namespace.displayControl.show= !scope.namespace.displayControl.show;   
+            }
+
             //theme: https://github.com/ajaxorg/ace-builds/tree/ba3b91e04a5aa559d56ac70964f9054baa0f4caf/src-min
             scope.aceConfig = {
                 $blockScrolling: Infinity,
@@ -896,8 +901,8 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
                     _editor.$blockScrolling = Infinity;
                     _editor.setOptions({
                         fontSize: 13,
-                        minLines: 10,
-                        maxLines: 20
+                        minLines: 20,
+                        maxLines: 40
                     })
                 }
             };

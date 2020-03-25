@@ -22,7 +22,7 @@
         <div class="col-md-6 text-right" style="padding-right:23px;">
             <span data-toggle="collapse" data-target="#BODY{{namespace.branch.id}}" aria-expanded="false">
                 <span class="label no-radius cursor-pointer" data-toggle="collapse" data-target="#BODY{{namespace.id}}"
-                    aria-expanded="false" ng-click="showNamespaceBody = !showNamespaceBody"
+                    aria-expanded="false" ng-click="switchShowHide()"
                     ng-show="namespace.initialized">
                     <a>{{'Component.Namespace.Header.Title.ExpandAndCollapse' | translate }}</a>
                 </span>
