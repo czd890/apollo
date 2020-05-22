@@ -18,6 +18,8 @@ server:
 
 logging:
   file: /opt/logs/100003173/apollo-portal.log
+  level:
+    com.ctrip.framework.apollo: warn
 
 management:
   health:

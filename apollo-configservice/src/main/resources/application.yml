@@ -12,3 +12,5 @@ server:
 
 logging:
   file: /opt/logs/100003171/apollo-configservice.log
+  level:
+    com.ctrip.framework.apollo: warn
