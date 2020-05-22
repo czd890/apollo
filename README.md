@@ -5,10 +5,6 @@
 [![Build Status](https://travis-ci.org/ctripcorp/apollo.svg?branch=master)](https://travis-ci.org/ctripcorp/apollo)
 [![GitHub release](https://img.shields.io/github/release/ctripcorp/apollo.svg)](https://github.com/ctripcorp/apollo/releases)
 [![Maven Central Repo](https://img.shields.io/maven-central/v/com.ctrip.framework.apollo/apollo.svg)](https://mvnrepository.com/artifact/com.ctrip.framework.apollo/apollo-client)
-[![Coverage Status](https://coveralls.io/repos/github/ctripcorp/apollo/badge.svg?branch=master)](https://coveralls.io/github/ctripcorp/apollo?branch=master)
-<a href="https://scan.coverity.com/projects/ctripcorp-apollo">
-  <img alt="Coverity Scan Build Status" src="https://img.shields.io/coverity/scan/8244.svg"/>
-</a>
 [![codecov.io](https://codecov.io/github/ctripcorp/apollo/coverage.svg?branch=master)](https://codecov.io/github/ctripcorp/apollo?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -120,17 +116,17 @@ Java客户端不依赖任何框架，能够运行于所有Java运行时环境，
 <table>
   <thead>
     <th>Apollo技术支持⑤群<br />群号：914839843（未满）</th>
+    <th>Apollo技术支持②群<br />群号：904287263（未满）</th>
     <th>Apollo技术支持④群<br />群号：516773934（已满）</th>
     <th>Apollo技术支持③群<br />群号：742035428（已满）</th>
-    <th>Apollo技术支持②群<br />群号：904287263（已满）</th>
     <th>Apollo技术支持①群<br />群号：375526581（已满）</th>
   </thead>
   <tbody>
     <tr>
       <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-5.png" alt="tech-support-qq-5"></td>
+      <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-2.png" alt="tech-support-qq-2"></td>
       <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-4.png" alt="tech-support-qq-4"></td>
       <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-3.png" alt="tech-support-qq-3"></td>
-      <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-2.png" alt="tech-support-qq-2"></td>
       <td><img src="https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/tech-support/tech-support-qq-1.png" alt="tech-support-qq-1"></td>
     </tr>
   </tbody>
@@ -378,6 +374,16 @@ The project is licensed under the [Apache 2 license](https://github.com/ctripcor
 ![找一找教程网](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/zyiz.png) 
 ![中油碧辟石油有限公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/bppc.png) 
 ![四川商旅无忧科技服务有限公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/shanglv51.png) 
+![懿鸢网络科技（上海）有限公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/waijiao365.png) 
+![稿定科技](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/gaoding.jpg) 
+![搵樓 - 利嘉閣](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/ricacorp.png) 
+![南京领行科技股份有限公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/t3go.png) 
+![北京希瑞亚斯科技有限公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/mokahr.jpg) 
+![印彩虹印刷公司](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/printrainbow.png) 
+![Million Tech](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/milliontech.png) 
+![果果科技](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/guoguokeji.jpg) 
+![昆明航空](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/airkunming.png) 
+![我爱我家](https://raw.githubusercontent.com/ctripcorp/apollo-community/master/images/known-users/5i5j.png) 
 
 # Awards
 
