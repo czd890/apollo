@@ -745,7 +745,6 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
                         }
                     );
                 namespace.commited = true;
-                toggleTextEditStatus(namespace);
             }
 
             function syntaxCheck(namespace) {
@@ -760,7 +759,7 @@ function directive($window, $translate, toastr, AppUtil, EventManager, Permissio
                     namespace.baseInfo.namespaceName,
                     model).then(
                         function (result) {
-                            toastr.success($translate.instant('ApolloNsPanel.GrammarIsright'));
+                            toastr.success($translate.instant('ApolloNsPanel.GrammarIsRight'));
 
                         }, function (result) {
                             EventManager.emit(EventManager.EventType.SYNTAX_CHECK_TEXT_FAILED, {

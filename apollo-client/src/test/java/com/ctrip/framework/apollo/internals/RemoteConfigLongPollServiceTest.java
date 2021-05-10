@@ -20,9 +20,10 @@ import com.ctrip.framework.apollo.core.signature.Signature;
 import com.ctrip.framework.apollo.util.ConfigUtil;
 import com.ctrip.framework.apollo.util.http.HttpRequest;
 import com.ctrip.framework.apollo.util.http.HttpResponse;
-import com.ctrip.framework.apollo.util.http.HttpUtil;
+import com.ctrip.framework.apollo.util.http.HttpClient;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.net.HttpHeaders;
 import com.google.common.util.concurrent.SettableFuture;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.servlet.http.HttpServletResponse;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,7 +51,7 @@ public class RemoteConfigLongPollServiceTest {
   @Mock
   private HttpResponse<List<ApolloConfigNotification>> pollResponse;
   @Mock
-  private HttpUtil httpUtil;
+  private HttpClient httpClient;
   @Mock
   private ConfigServiceLocator configServiceLocator;
   private Type responseType;
@@ -61,9 +63,7 @@ public class RemoteConfigLongPollServiceTest {
 
   @Before
   public void setUp() throws Exception {
-    MockInjector.reset();
-
-    MockInjector.setInstance(HttpUtil.class, httpUtil);
+    MockInjector.setInstance(HttpClient.class, httpClient);
 
     someServerUrl = "http://someServer";
     ServiceDTO serviceDTO = mock(ServiceDTO.class);
@@ -80,6 +80,11 @@ public class RemoteConfigLongPollServiceTest {
 
     someAppId = "someAppId";
     someCluster = "someCluster";
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    MockInjector.reset();
   }
 
   @Test
@@ -109,7 +114,7 @@ public class RemoteConfigLongPollServiceTest {
         longPollFinished.set(true);
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     remoteConfigLongPollService.submit(someNamespace, someRepository);
 
@@ -151,7 +156,7 @@ public class RemoteConfigLongPollServiceTest {
 
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     final SettableFuture<Boolean> onNotified = SettableFuture.create();
     doAnswer(new Answer<Void>() {
@@ -209,11 +214,11 @@ public class RemoteConfigLongPollServiceTest {
         Map<String, String> headers = request.getHeaders();
         assertNotNull(headers);
         assertTrue(headers.containsKey(Signature.HTTP_HEADER_TIMESTAMP));
-        assertTrue(headers.containsKey(Signature.HTTP_HEADER_AUTHORIZATION));
+        assertTrue(headers.containsKey(HttpHeaders.AUTHORIZATION));
 
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     final SettableFuture<Boolean> onNotified = SettableFuture.create();
     doAnswer(new Answer<Void>() {
@@ -284,7 +289,7 @@ public class RemoteConfigLongPollServiceTest {
 
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     final SettableFuture<Boolean> onAnotherRepositoryNotified = SettableFuture.create();
     doAnswer(new Answer<Void>() {
@@ -347,7 +352,7 @@ public class RemoteConfigLongPollServiceTest {
 
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     final SettableFuture<Boolean> someRepositoryNotified = SettableFuture.create();
     doAnswer(new Answer<Void>() {
@@ -416,7 +421,7 @@ public class RemoteConfigLongPollServiceTest {
 
         return pollResponse;
       }
-    }).when(httpUtil).doGet(any(HttpRequest.class), eq(responseType));
+    }).when(httpClient).doGet(any(HttpRequest.class), eq(responseType));
 
     final SettableFuture<Boolean> onNotified = SettableFuture.create();
     doAnswer(new Answer<Void>() {

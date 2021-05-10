@@ -10,7 +10,6 @@ import com.ctrip.framework.apollo.configservice.service.ReleaseMessageServiceWit
 import com.ctrip.framework.apollo.core.ConfigConsts;
 import com.ctrip.framework.apollo.core.dto.ApolloConfigNotification;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +54,7 @@ public class NotificationControllerV2IntegrationTest extends AbstractBaseIntegra
     someCluster = ConfigConsts.CLUSTER_NAME_DEFAULT;
     defaultNamespace = ConfigConsts.NAMESPACE_APPLICATION;
     somePublicNamespace = "somePublicNamespace";
-    executorService = Executors.newSingleThreadExecutor();
+    executorService = Executors.newFixedThreadPool(1);
     typeReference = new ParameterizedTypeReference<List<ApolloConfigNotification>>() {
     };
   }
