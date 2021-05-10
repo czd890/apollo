@@ -26,3 +26,5 @@ target
 # git
 *.orig
 /build-dist/*
+.flattened-pom.xml
+

@@ -34,8 +34,6 @@ function SettingController($scope, $location, $translate, toastr,
         initOrganization();
         initPermission();
         initAdmins();
-        initApplication();
-
     }
 
     function initOrganization() {
@@ -53,6 +51,7 @@ function SettingController($scope, $location, $translate, toastr,
                 width: '100%',
                 data: organizations
             });
+            initApplication();
         }, function (result) {
             toastr.error(AppUtil.errorMsg(result), "load organizations error");
         });
@@ -86,7 +85,7 @@ function SettingController($scope, $location, $translate, toastr,
                 $scope.appRoleUsers = result;
                 $scope.admins = [];
                 $scope.appRoleUsers.masterUsers.forEach(function (user) {
-                    $scope.admins.push(user.userId);
+                    $scope.admins.push(_.escape(user.userId));
                 });
 
             });
@@ -106,7 +105,7 @@ function SettingController($scope, $location, $translate, toastr,
         $orgWidget.val(app.orgId).trigger("change");
 
         var $ownerSelector = $('.ownerSelector');
-        var defaultSelectedDOM = '<option value="' + app.ownerName + '" selected="selected">' + app.ownerName
+        var defaultSelectedDOM = '<option value="' + _.escape(app.ownerName) + '" selected="selected">' + _.escape(app.ownerName)
             + '</option>';
         $ownerSelector.append(defaultSelectedDOM);
         $ownerSelector.trigger('change');
