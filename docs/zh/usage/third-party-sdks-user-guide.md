@@ -1,6 +1,6 @@
 ## 1. Go
 ### Apollo Go 客户端 1
-项目地址：[zouyx/agollo](https://github.com/zouyx/agollo)
+项目地址：[apolloconfig/agollo](https://github.com/apolloconfig/agollo)
 
 > 非常感谢[@zouyx](https://github.com/zouyx)提供Go Apollo客户端的支持
 
@@ -103,6 +103,8 @@
 
 ### Apollo PHP 客户端 2
 项目地址：[apollo-sdk-config](https://github.com/fengzhibin/apollo-sdk-config)
+
+项目地址：[apollo-sdk-clientd](https://github.com/fengzhibin/apollo-sdk-clientd)
 
 > 非常感谢[@fengzhibin](https://github.com/fengzhibin)提供PHP Apollo客户端的支持
 
